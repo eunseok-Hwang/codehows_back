@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "table")
+@Table(name = "member")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long member_id;
 
     @Column(nullable = false)
     private String user_id;

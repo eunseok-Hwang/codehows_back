@@ -28,8 +28,9 @@ public class Board extends BaseEntity {
     @Column(columnDefinition = "LONGTEXT", nullable = false)
     private String content;
 
-    @JoinColumn
-    private String writer;
+    @JoinColumn(name = "member_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Member writer;
 
     @Column(nullable = false)
     private String img;
