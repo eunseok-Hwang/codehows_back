@@ -20,7 +20,7 @@ public class Board extends BaseEntity {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private BoardType board_type;
+    private BoardType boardtype;
 
     @Column(nullable = false)
     private String title;

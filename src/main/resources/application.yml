@@ -10,3 +10,5 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create
+
+UploadPath: file:///C:/codehows_back/temp/img/
