@@ -16,10 +16,10 @@ import lombok.NoArgsConstructor;
 public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long member_id;
+    private Long memberId;
 
     @Column(nullable = false, unique = true)
-    private String user_id;
+    private String userId;
 
     @Column(nullable = false)
     private String password;

@@ -2,18 +2,25 @@ package com.back.dto;
 
 import com.back.constant.BoardType;
 import com.back.entity.Member;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@Builder
+@ToString
 public class BoardDto {
-    private Long table_id;
-
     private BoardType boardtype;
 
     private String title;
 
     private String content;
 
-    private Member writer;
-
     private String img;
+
+    private LocalDateTime createdDate;
 }

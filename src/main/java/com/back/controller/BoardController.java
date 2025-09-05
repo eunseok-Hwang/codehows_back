@@ -1,11 +1,14 @@
 package com.back.controller;
 
 import com.back.constant.BoardType;
+import com.back.dto.BoardDto;
 import com.back.dto.ImgCardDto;
 
 
+import com.back.dto.MemberDto;
 import com.back.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +19,7 @@ import java.util.List;
 public class BoardController {
     private final BoardService boardService;
 
-    @GetMapping("/{type}")
+    @GetMapping("/list/{type}")
     public List<ImgCardDto> findAll(@PathVariable String type) {
         if(type.equals("ALL")) {
             return boardService.findAll();
@@ -31,7 +34,9 @@ public class BoardController {
         }
         return boardService.findAll();
     }
-//
-//    @PostMapping("/post")
-//    public List
+
+    @PostMapping("/post")
+    public void createMember(@RequestBody BoardDto boardDto) {
+        boardService.saveMember(boardDto);
+    }
 }

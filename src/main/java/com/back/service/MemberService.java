@@ -16,7 +16,7 @@ public class MemberService {
 
     public Member saveMember(MemberDto memberDto) {
         Member member = Member.builder()
-                .user_id(memberDto.getUser_id())
+                .userId(memberDto.getUserId())
                 .password(memberDto.getPassword())
                 .nickname(memberDto.getNickname())
                 .username(memberDto.getUsername())

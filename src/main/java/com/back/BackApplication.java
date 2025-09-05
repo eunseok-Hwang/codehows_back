@@ -1,8 +1,14 @@
 package com.back;
 
 import com.back.constant.BoardType;
+import com.back.constant.Role;
 import com.back.entity.Board;
+import com.back.entity.Member;
 import com.back.repository.BoardRepository;
+import com.back.repository.MemberRepository;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BackApplication implements CommandLineRunner {
 
     private final BoardRepository boardRepository;
+    private final MemberRepository memberRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(BackApplication.class, args);
@@ -47,5 +54,12 @@ public class BackApplication implements CommandLineRunner {
                 .boardtype(BoardType.JP)
                 .build());
 
+        memberRepository.save(Member.builder()
+                .userId("user")
+                .password("user")
+                .username("test")
+                .role(Role.valueOf("USER"))
+                .nickname("user")
+                .build());
     }
 }

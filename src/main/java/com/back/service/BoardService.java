@@ -1,6 +1,7 @@
 package com.back.service;
 
 import com.back.constant.BoardType;
+import com.back.dto.BoardDto;
 import com.back.dto.ImgCardDto;
 import com.back.entity.Board;
 import com.back.repository.BoardRepository;
@@ -22,7 +23,7 @@ public class BoardService {
         List<ImgCardDto> imgCardDtos = new ArrayList<>();
         for (Board board : boardRepository.findAll()) {
             ImgCardDto imgCardDto = ImgCardDto.builder()
-                    .id(board.getTable_id())
+                    .id(board.getTableId())
                     .title(board.getTitle())
                     .contents(board.getContent())
                     .img(board.getImg())
@@ -37,7 +38,7 @@ public class BoardService {
         List<ImgCardDto> imgCardDtos = new ArrayList<>();
         for (Board board : boardRepository.findAllByBoardtype(type)) {
             ImgCardDto imgCardDto = ImgCardDto.builder()
-                    .id(board.getTable_id())
+                    .id(board.getTableId())
                     .title(board.getTitle())
                     .contents(board.getContent())
                     .img(board.getImg())
@@ -48,5 +49,17 @@ public class BoardService {
         return imgCardDtos;
     }
 
-//    public Board
+    public Board saveBoard(BoardDto boardDto) {
+        Board board = Board.builder()
+                .content(boardDto.getContent())
+                .title(boardDto.getTitle())
+                .img(boardDto.getImg())
+                .boardtype(boardDto.getBoardtype())
+                .
+                .build();
+        boardRepository.save(board);
+        return board;
+    }
+
+
 }

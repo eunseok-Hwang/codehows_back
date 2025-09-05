@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Board extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long table_id;
+    private Long tableId;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -28,7 +28,7 @@ public class Board extends BaseEntity {
     @Column(columnDefinition = "LONGTEXT", nullable = false)
     private String content;
 
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "memberId")
     @ManyToOne(fetch = FetchType.LAZY)
     private Member writer;
 
