@@ -14,7 +14,7 @@ import java.util.Date;
 @Service
 public class JwtService {
     static final String TOKEN_PREFIX = "Bearer ";
-    static final long EXPIRATION_TIME = 300_000;
+    static final long EXPIRATION_TIME = 300_000_000;
     static final Key SIGNING_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
     //JWT 생성

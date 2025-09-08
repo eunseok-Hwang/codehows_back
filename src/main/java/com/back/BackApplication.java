@@ -6,9 +6,6 @@ import com.back.entity.Board;
 import com.back.entity.Member;
 import com.back.repository.BoardRepository;
 import com.back.repository.MemberRepository;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -32,25 +29,25 @@ public class BackApplication implements CommandLineRunner {
         boardRepository.save(Board.builder()
                 .title("차돌짬뽕")
                 .content("맛있는 차짬")
-                .img("chadol.jpg")
+                .img("/images/chadol.jpg")
                 .boardtype(BoardType.CN)
                 .build());
         boardRepository.save(Board.builder()
                 .title("김치찌개")
                 .content("한국음식")
-                .img("kimz.jpg")
+                .img("/images/kimz.jpg")
                 .boardtype(BoardType.KR)
                 .build());
         boardRepository.save(Board.builder()
                 .title("슈니첼")
                 .content("독일음식")
-                .img("suz.jpg")
+                .img("/images/suz.jpg")
                 .boardtype(BoardType.WEST)
                 .build());
         boardRepository.save(Board.builder()
                 .title("오차즈케")
                 .content("일본음식")
-                .img("ohcha.jpg")
+                .img("/images/ohcha.jpg")
                 .boardtype(BoardType.JP)
                 .build());
 
