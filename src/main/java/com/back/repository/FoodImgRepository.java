@@ -13,6 +13,5 @@ public interface FoodImgRepository extends JpaRepository<FoodImg, Long> {
     // 파라미터 이름도 id로 변경하는 것이 가독성에 좋습니다.
     Optional<FoodImg> findByIdAndRepImgYn(Long id, String repImgYn);
 
-    // Board ID로 모든 이미지를 찾는 메서드
-    List<FoodImg> findByBoardTableId(Long boardTableId);
+
 }

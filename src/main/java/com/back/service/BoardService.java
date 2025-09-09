@@ -6,6 +6,7 @@ import com.back.dto.ImgCardDto;
 import com.back.entity.Board;
 import com.back.entity.FoodImg;
 import com.back.repository.BoardRepository;
+import com.back.repository.CommentRepository;
 import com.back.repository.FoodImgRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class BoardService {
         List<ImgCardDto> imgCardDtos = new ArrayList<>();
         for (Board board : boardRepository.findAll()) {
             ImgCardDto imgCardDto = ImgCardDto.builder()
-                    .id(board.getTableId())
+                    .id(board.getBoard_id())
                     .title(board.getTitle())
                     .contents(board.getContent())
                     .img(board.getImg())
@@ -44,7 +45,7 @@ public class BoardService {
         List<ImgCardDto> imgCardDtos = new ArrayList<>();
         for (Board board : boardRepository.findAllByBoardtype(type)) {
             ImgCardDto imgCardDto = ImgCardDto.builder()
-                    .id(board.getTableId())
+                    .id(board.getBoard_id())
                     .title(board.getTitle())
                     .contents(board.getContent())
                     .img(board.getImg())
@@ -94,7 +95,7 @@ public class BoardService {
                 .boardtype(boardType)
                 .build());
 
-        if(imageFiles == null) return board.getTableId();
+        if(imageFiles == null) return board.getBoard_id();
         // 2. 이미지 파일 리스트를 반복문으로 순회하며 각 파일을 처리합니다.
         for (int i = 0; i < imageFiles.size(); i++) {
             MultipartFile imgFile = imageFiles.get(i); // 리스트에서 개별 파일을 가져옵니다.
@@ -129,10 +130,8 @@ public class BoardService {
         }
 
         // 최종적으로 저장된 게시글의 ID를 반환합니다.
-        return board.getTableId();
+        return board.getBoard_id();
     }
-
-
 
 
 }

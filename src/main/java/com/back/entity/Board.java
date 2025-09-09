@@ -15,7 +15,7 @@ public class Board extends BaseEntity {
     @Id
     @Column(name = "board_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long tableId;
+    private Long board_id;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

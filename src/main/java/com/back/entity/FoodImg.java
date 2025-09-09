@@ -8,7 +8,7 @@ import lombok.Setter;
 @Table(name = "foodimg")
 @Getter
 @Setter
-public class FoodImg {
+public class FoodImg extends BaseEntity {
     @Id
     @Column(name = "foodImg")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

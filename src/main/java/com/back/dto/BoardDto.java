@@ -29,7 +29,7 @@ public class BoardDto {
 
     public static BoardDto fromEntity(Board board) {
         return BoardDto.builder()
-                .id(board.getTableId())
+                .id(board.getBoard_id())
                 .title(board.getTitle())
                 .contents(board.getContent())
                 .img(board.getImg())
