@@ -80,4 +80,10 @@ public class BoardController {
 
     }
 
+    @DeleteMapping("/{board_id}")
+    public ResponseEntity<?> deleteBoard(@PathVariable Long board_id){
+        boardService.deleteBoard(board_id);
+        return ResponseEntity.ok().body(board_id);
+    }
+
 }

@@ -8,6 +8,7 @@ import com.back.entity.FoodImg;
 import com.back.repository.BoardRepository;
 import com.back.repository.CommentRepository;
 import com.back.repository.FoodImgRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -131,6 +132,12 @@ public class BoardService {
 
         // 최종적으로 저장된 게시글의 ID를 반환합니다.
         return board.getBoard_id();
+    }
+
+    public void deleteBoard(Long board_id){
+        Board board = boardRepository.findById(board_id)
+                .orElseThrow(() -> new EntityNotFoundException("게시글을 찾을 수 없습니다."));
+        boardRepository.delete(board);
     }
 
 
