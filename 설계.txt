@@ -1,0 +1,30 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+Table member {
+  id integer [primary key]
+  user_id varchar 
+  username varchar
+  password varchar 
+  role varchar
+  nickname varchar
+}
+
+Table board {
+  table_id integer [pk]
+  board_type varchar
+  title varchar
+  contents longtext
+  writer varchar
+  img varchar
+}
+
+Table comment {
+  comment_id integer [pk]
+  comment_writer varchar
+  comment text
+  uploadtime timestamp
+  board_id [fk]
+}
+Ref: "board"."board_name" < "korean"."kr_id"
+Ref: "member"."id" < "korean"."kr_writer"
+Ref: "member"."id" < "comment"."comment_writer"
