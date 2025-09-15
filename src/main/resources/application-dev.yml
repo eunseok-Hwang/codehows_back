@@ -1,6 +1,6 @@
 spring:
-  profiles:
-    active: dev
+#  profiles:
+#    active: dev
 
   datasource:
     url: jdbc:mysql://localhost:3306/board
